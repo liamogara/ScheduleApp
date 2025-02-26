@@ -10,7 +10,8 @@ namespace ScheduleApp.Models
         public int Id { get; set; }
         public string EventName { get; set; }
         public string EventLocation { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime Date { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
     }
 }

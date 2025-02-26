@@ -12,17 +12,29 @@ public partial class EventPage : ContentPage
 
     private void OnEventSubmitted(object sender, EventArgs e)
     {
-        EventArea.IsVisible = false;
-        BackToMenuButton.IsVisible = true;
-        EventSubmittedLabel.Text = "Event added!";
-
-        App.EventList.Add(new Event
+        if (EventNameEntry.Text!=null && EventLocationEntry.Text!=null)
         {
-            EventName = EventNameEntry.Text,
-            EventLocation = EventLocationEntry.Text,
-            StartDate = StartDatePicker.Date,
-            EndDate = EndDatePicker.Date
-        });
+            EventArea.IsVisible = false;
+            BackToMenuButton.IsVisible = true;
+            EventSubmittedLabel.Text = "Event added!";
+            EventSubmittedLabel.TextColor = Colors.Green;
+
+
+            App.EventList.Add(new Event
+            {
+                EventName = EventNameEntry.Text,
+                EventLocation = EventLocationEntry.Text,
+                Date = DatePicker.Date,
+                StartTime = StartTimePicker.Time,
+                EndTime = EndTimePicker.Time
+            });
+        }
+        else
+        {
+            EventSubmittedLabel.Text = "Please fill in all fields.";
+
+            EventSubmittedLabel.TextColor = Colors.Red;
+        }
     }
 
     private void OnBackToMenu(object sender, EventArgs e)
