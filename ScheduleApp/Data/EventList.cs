@@ -36,5 +36,18 @@ namespace ScheduleApp.Data
             _conn = new SQLiteConnection(_dbPath);
             _conn.Delete(new Event { Id = id });
         }
+
+        public void Update(Event ev)
+        {
+            _conn = new SQLiteConnection(_dbPath);
+            _conn.Update(ev);
+        }
+
+        public Event Request(int id)
+        {
+            _conn = new SQLiteConnection(_dbPath);
+            var result = _conn.Query<Event>($"select * from schedule where id={id}").First();
+            return result;
+        }
     }
 }

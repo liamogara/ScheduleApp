@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScheduleApp.EventListPage"
+             Title="">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding ="50,100,50,50"
+            Spacing="25">
+            <Grid ColumnDefinitions="*,*,*,*,*,*,*">
+                <Label Grid.Column="0" Text="Event" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Grid.Column="1" Text="Location" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Grid.Column="2" Text="Date" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Grid.Column="3" Text="Start" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Grid.Column="4" Text="End" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Grid.Column="5" Text="Update Event" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Grid.Column="6" Text="Delete Event" FontSize="Medium" FontAttributes="Bold"/>
+            </Grid>
+            <CollectionView x:Name="eventList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="*,*, *"
+                              ColumnDefinitions="*,*,*,*,*,*,*"
+                              ColumnSpacing="5"
+                              RowSpacing="5">
+                            
+                            <Label Grid.Column="0" Text="{Binding Name}" FontSize="Medium" />
+                            <Label Grid.Column="1" Text="{Binding Location}" FontSize="Medium" />
+                            <Label Grid.Column="2" Text="{Binding Date, StringFormat='{0:d}'}" FontSize="Medium" />
+                            <Label Grid.Column="3" Text="{Binding StartTime, StringFormat='{0:d}'}" FontSize="Medium" />
+                            <Label Grid.Column="4" Text="{Binding EndTime, StringFormat='{0:d}'}" FontSize="Medium" />
+                            <Button Grid.Column="5" Text="Update"
+                                    BindingContext="{Binding Id}"
+                                    Clicked="OnUpdate" FontSize="Medium"/>
+                            <Button Grid.Column="6" Text="Delete"
+                                    BindingContext="{Binding Id}"
+                                    Clicked="OnDelete" FontSize="Medium" BackgroundColor="Crimson"/>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button 
+                x:Name="AddEventButton"
+                Text="Add Event"
+                Clicked="OnAddEventChosen"
+                HorizontalOptions="Center"
+                FontSize="Large"/>
+            <Button 
+                x:Name="BackToMenuButton"
+                Text="Back To Menu"
+                Clicked="OnBackToMenu"
+                HorizontalOptions="Center"
+                FontSize="Large"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

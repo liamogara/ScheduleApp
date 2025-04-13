@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScheduleApp.UpdatePage"
+             Title="">
+    <VerticalStackLayout
+        Spacing="25">
+
+        <Label
+            x:Name="EventSubmittedLabel"
+            Text=" "
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="Large"/>
+        <VerticalStackLayout
+            x:Name="EventArea"
+            Spacing="25">
+
+            <Label 
+                x:Name="MainLabel"
+                Text="Enter your event details:"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                FontSize="Large"/>
+
+            <Grid RowDefinitions = "*,*,*,*,*,*" 
+                  ColumnDefinitions= "*,*"
+                  RowSpacing="5"
+                  Padding="10">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Name:"
+                    FontSize="Medium"
+                    HorizontalOptions="End"
+                    MinimumWidthRequest="200"/>
+                <Entry 
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    x:Name="EventNameEntry"
+                    Placeholder="Event Name"
+                    MinimumWidthRequest="300"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Location:"
+                    FontSize="Medium"
+                    HorizontalOptions="End"
+                    MinimumWidthRequest="200"/>
+                <Entry 
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    x:Name="EventLocationEntry"
+                    Placeholder="Location Name"
+                    MinimumWidthRequest="300"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Description:"
+                    FontSize="Medium"
+                    HorizontalOptions="End"
+                    MinimumWidthRequest="200"/>
+                <Entry 
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    x:Name="EventDescriptionEntry"
+                    Placeholder="Optional Description"
+                    MinimumWidthRequest="300"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"/>
+                <Label 
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Text="Date:"
+                    FontSize="Medium"
+                    HorizontalOptions="End"
+                    MinimumWidthRequest="200"/>
+                <DatePicker
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    x:Name="DatePicker"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Text="Start Time:"
+                    FontSize="Medium"
+                    HorizontalOptions="End"
+                    MinimumWidthRequest="200"
+                    />
+                <TimePicker
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    x:Name="StartTimePicker"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"/>
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Text="End Time:"
+                    FontSize="Medium"
+                    HorizontalOptions="End"
+                    MinimumWidthRequest="200"/>
+                <TimePicker
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    x:Name="EndTimePicker"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"/>
+            </Grid>
+            <Button 
+                x:Name="SubmitAnswer"
+                WidthRequest="500"
+                Text="Submit"
+                Clicked="OnEventSubmitted"
+                HorizontalOptions="Center"
+                FontSize="Large"/>
+
+        </VerticalStackLayout>
+
+        <Button 
+            x:Name="BackToEventPageButton"
+            Text="Back To Event List"
+            Clicked="OnBackToEventListPage"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="Large"/>
+    </VerticalStackLayout>
+</ContentPage>

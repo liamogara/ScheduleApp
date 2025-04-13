@@ -9,32 +9,29 @@
         Padding="50"
         >
             <Label Text = "My Schedule"
-               TextColor="White"
+               
                FontSize="100"
                HorizontalOptions="Center"
                Margin="50"/>
 
-            <Grid RowDefinitions ="*, 150" 
-              ColumnDefinitions="*,*,*,*">
+            <Grid RowDefinitions ="*, *" 
+              ColumnDefinitions="*"
+              RowSpacing="25">
 
-                <Button Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        Text="View Events"
-                        TextColor="Black"
-                        BackgroundColor="DarkOliveGreen"
+                <Button Grid.Row="0"
+                        Text="View Schedule"
+                        
                         Clicked="OnViewScheduleChosen"
                         MaximumWidthRequest="600"
                         MaximumHeightRequest="100"
-                        FontSize="60"></Button>
-                <Button Grid.Column="2" 
-                        Grid.ColumnSpan="2" 
-                        BackgroundColor="DarkOliveGreen" 
-                        Text="Add Event"
-                        TextColor="Black"
-                        Clicked="OnAddEventChosen"
+                        FontSize="50"></Button>
+                <Button Grid.Row="1"
+                        Text="View Event List"
+                        
+                        Clicked="OnViewEventListChosen"
                         MaximumWidthRequest="600"
                         MaximumHeightRequest="100"
-                        FontSize="60"></Button>
+                        FontSize="40"></Button>
             </Grid>
         </VerticalStackLayout>
     </ContentView>

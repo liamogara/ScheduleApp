@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScheduleApp.CalendarPage"
+             Title=""
+             xmlns:controls="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    
+    <VerticalStackLayout>
+        <controls:Calendar 
+            x:Name="Calendar"
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill"
+            CalendarLayout="Week"
+            Events="{Binding Events}"
+            EventsScrollViewVisible="True"
+
+            MonthLabelColor="{StaticResource White}"
+            YearLabelColor="{StaticResource White}"
+            EventIndicatorSelectedColor="White"
+            DaysTitleColor="{StaticResource White}"
+            DaysTitleLabelFirstUpperRestLower="True"
+            DaysTitleMaximumLength="TwoChars"
+            DaysTitleWeekendColor="Gray"
+            DeselectedDayTextColor="{StaticResource SecondaryDarkText}"
+            OtherMonthDayColor="Gray"
+            SelectedDayTextColor="{StaticResource White}"
+            SelectedDayBackgroundColor="{StaticResource PrimaryDark}"
+            SelectedDateColor="{StaticResource White}"
+            SelectedTodayTextColor="{StaticResource SecondaryDarkText}"
+            TodayOutlineColor="Transparent"
+            TodayFillColor="{StaticResource Primary}"
+            TodayTextColor="{StaticResource SecondaryDarkText}"
+            OtherMonthSelectedDayColor="{StaticResource Primary}"
+            FirstDayOfWeek="Monday"
+            >
+            <controls:Calendar.EventTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout
+                        Padding="15,0,0,0">
+                        <Label
+                            Text="{Binding Name}"
+                            FontAttributes="Bold"
+                            FontSize="Large" />
+                        <Label
+                            Text="{Binding Location}"
+                            FontSize="Medium"/>
+                        <HorizontalStackLayout>
+                            <Label
+                                Text="{Binding StartTime}"
+                                FontSize="Medium"/>
+                            <Label
+                                Text="-"
+                                FontSize="Medium"/>
+                            <Label
+                                Text="{Binding EndTime}"
+                                FontSize="Medium"/>
+                        </HorizontalStackLayout>
+                        <Label
+                            Text="{Binding Description}"
+                            FontSize="Small"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </controls:Calendar.EventTemplate>
+        </controls:Calendar>
+        <Button 
+            x:Name="BackToMenuButton"
+            Text="Back To Menu"
+            Clicked="OnBackToMenu"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="Large"/>
+    </VerticalStackLayout>
+</ContentPage>

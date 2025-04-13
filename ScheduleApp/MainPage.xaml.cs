@@ -9,12 +9,17 @@
 
         private void OnAddEventChosen(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new EventPage());
+            Navigation.PushAsync(new AddEventPage());
+        }
+
+        private void OnViewEventListChosen(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new EventListPage());
         }
 
         private void OnViewScheduleChosen(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new SchedulePage());
+            Navigation.PushAsync(new CalendarPage());
         }
     }
 
